@@ -9,10 +9,6 @@ public class RewardCounter : MonoBehaviour
     [SerializeField] private Text coincounter;
     private int coinCollected = 0;
     // Start is called before the first frame update
-    void Start()
-    {
-      //  playerJumpScript = GetComponent<PlayerJump>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
