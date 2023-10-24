@@ -71,7 +71,7 @@ public class WingsuitControler : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if (count >= 3)
+        if (count >= 11)
         {
             winTextObject.SetActive(true);
         }
