@@ -15,17 +15,16 @@ public class WingsuitControler : MonoBehaviour
     public float precentage;
     private int count;
     public GameObject winTextObject;
-
-
+    public AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
         rot = transform.eulerAngles;
         count = 0;
         SetCountText();
         winTextObject.SetActive(false);
-
     }
 
     private void Update()
@@ -54,7 +53,6 @@ public class WingsuitControler : MonoBehaviour
         Vector3 localV = transform.InverseTransformDirection(rb.velocity);
         localV.z = mod_speed;
         rb.velocity = transform.TransformDirection(localV);
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -62,6 +60,7 @@ public class WingsuitControler : MonoBehaviour
         if (other.gameObject.CompareTag("PickUp"))
         {
             other.gameObject.SetActive(false);
+            audioSource.Play();
         }
 
         count = count + 1;
@@ -76,5 +75,4 @@ public class WingsuitControler : MonoBehaviour
             winTextObject.SetActive(true);
         }
     }
-
 }
